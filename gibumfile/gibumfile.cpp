@@ -162,7 +162,12 @@ int main()
 void pre(string m, int *n)
 {
     reverse(m.begin(), m.end());
-    *n = m.find("/");
+    #ifdef __linux__
+        *n = m.find("/");
+    #endif
+    #ifdef _WIN32
+    *n = m.find("\\");
+    #endif
     *n = m.length() - *n;
 }
 void byos(string *b, string *d, fs::directory_entry p)

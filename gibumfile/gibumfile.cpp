@@ -70,7 +70,7 @@ int main()
             change.shrink_to_fit();
             for (auto &p : fs::recursive_directory_iterator("./"))
             {
-
+                byos(&temp1, &temp, p);
                 if (change.empty() || temp.find(change) != -1)
                 {
                     if (temp.find(target) != -1 || target.empty())
